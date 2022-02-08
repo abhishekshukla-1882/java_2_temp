@@ -3,22 +3,25 @@ const Array=[];
 //adding new product in the products function
 function products(){
     var product = fetch();
-    if(checkData(product.productId,product.productName,product.productPrice)==0){       
-            Array.push(product);
-            var table = document.getElementById('mytable');
-            var row = table.insertRow(-1);
-            var cell1 = row.insertCell(0);
-            var cell2 = row.insertCell(1);
-            var cell3 = row.insertCell(2);
-            for(var i=0; i<Array.length ; i++){
-                cell1.innerHTML = Array[i].productId;
-                cell2.innerHTML = Array[i].productName;
-                cell3.innerHTML = "USD " + Array[i].productPrice;
-            
-            }
-        }
+    display(product)
+    
 }
-
+function display(product){
+    if(checkData(product.productId,product.productName,product.productPrice)==0){       
+        Array.push(product);
+        var table = document.getElementById('mytable');
+        var row = table.insertRow(-1);
+        var cell1 = row.insertCell(0);
+        var cell2 = row.insertCell(1);
+        var cell3 = row.insertCell(2);
+        for(var i=0; i<Array.length ; i++){
+            cell1.innerHTML = Array[i].productId;
+            cell2.innerHTML = Array[i].productName;
+            cell3.innerHTML = Array[i].productPrice;
+        
+        }
+    }
+}
 
 //fetching input field data
 function fetch(){

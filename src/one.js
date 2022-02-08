@@ -3,7 +3,7 @@ const Array=[];
 //adding new product in the products function
 function products(){
     var product = fetch();
-    if(checkData(product.productId,product.productName,product.productPrice)==0){
+    if(checkData(product.productId,product.productName,product.productPrice)==0){       
             Array.push(product);
             var table = document.getElementById('mytable');
             var row = table.insertRow(-1);
@@ -22,20 +22,38 @@ function products(){
 
 //fetching input field data
 function fetch(){
-    var product_id= document.getElementById("productId").value;
+    var a = document.getElementById("productId").value;
+    product_id = parseInt(a)
+    console.log("hhh")
+    console.log(product_id)
     var product_name=document.getElementById("productName").value;
-    var product_price = document.getElementById("productPrice").value;
-    
-    return {"productId" : product_id,
-            "productName" : product_name,
-        "productPrice" : product_price};
+    var v = document.getElementById("productPrice").value;
+    product_price = parseInt(v)
+    fl = unique(productId,productName,productPrice)
+    if (fl == 0){
+        console.log("try another time ")
+    }
+    else {
+        return {"productId" : product_id,
+                "productName" : product_name,
+            "productPrice" : product_price};
+    }
 }
-
+function unique(id,name,price){
+    for(var i=0; i<Array.length ; i++){
+        if (Array[i].productId == product_id){
+            alert("Id should be unique")
+            return 0
+            
+        }
+    
+}
+}
 //checking Data types of input field
 
 function checkData(productId,productName, productPrice){
     var flag=0;
-    if(isNaN(productId)){
+    if(isNaN(productId) || productId == NaN){
         flag=1;
         alert("Product Id should be integer");
     }
@@ -44,12 +62,11 @@ function checkData(productId,productName, productPrice){
         flag=1;
         alert("Product Name should be String")
     }
-    if(isNaN(productPrice)){
+    if(isNaN(productPrice) || product_price == NaN){
         flag=1;
         alert("Product Price should be Number")
     }
     console.log(flag);
     return flag ;
     
-
 }

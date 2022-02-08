@@ -3,6 +3,7 @@ function come(){
     id = document.getElementById('productId').value
     proname = document.getElementById('productName').value
     price = document.getElementById('productPrice').value
+    
     return {
         'productId':id,
         'productName':proname,
@@ -27,6 +28,14 @@ function display(){
         cell3.innerHTML = product[i].price
     }
 }
-
+// function unique(products){
+//     alert("hii")
+//     for(var i=0; i<product.length; i++){
+//         if (products == product[i].id){
+//             alert("hieei")
+//             alert('change product id')
+//         }
+//     }
+// }
 
 // id,proname,price

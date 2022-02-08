@@ -12,6 +12,10 @@ function come(){
 function addproduct(){
     var products = come();
     product.push(products)
+    
+    display()
+}
+function display(){
     table = document.getElementById('table')
     var row = table.insertRow(-1);
     var cell1 = row.insertCell(0);
